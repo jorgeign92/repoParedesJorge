@@ -1,0 +1,295 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: linear-gradient(gray,black);
+    font-family: 'Open Sans', sans-serif;
+}
+
+header{
+    color: #23b5b5;
+    top: 0;
+    position: sticky;
+    padding: 16px;
+    font-size: 24px;
+    display: flex;
+    background-color: black;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9999;
+
+    header h1 {
+        font-weight: 100;
+    }
+
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap; 
+
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+}
+
+$colorFondoCard: rgb(204, 204, 204);
+
+.cardNoticia{
+    margin: 3px;
+    padding: 16px;
+    background-color: $colorFondoCard;
+    width: 45%;
+    border-radius: 16px;
+    transition: transform 1s;
+
+    .cardNoticia__titulo{
+        color:black;
+    }
+
+    .cardNoticia__texto{
+        color: black;
+    }
+
+    .cardNoticia__imagen{
+        color: gray;
+        &--fondoImagenIndex{
+            text-align: center;
+            background-color: black;
+            border-radius: 8px;
+            transition: transform 1s;
+        }
+        &--fondoImagenIndex:hover{
+            transform: rotate(5deg);
+        }
+    }
+
+    
+
+}
+
+.cardNoticia:hover{
+    transform: translate(10px,10px);
+}
+
+
+
+
+.cardPelicula{
+    @extend .cardNoticia;
+    background-image: linear-gradient(teal, rgb(179, 116, 0));
+    
+
+    .cardPelicula__titulo{
+        color:black;
+    }
+
+    .cardPelicula__texto{
+        color: black;
+    }
+
+    .cardPelicula__imagen{
+        color: gray;
+        &--fondoImagen{
+            text-align: center;
+            background-color: black;
+            border-radius: 8px;
+            transition: transform 1s;
+        }
+        &--fondoImagen:hover{
+            text-align: center;
+            background-color:black;
+            border-radius: 8px;
+            transform: translate(5px,5px);
+        }
+    }
+}
+
+.cardPelicula:hover{
+    transform: translate(10px,10px);
+}
+
+.cardSerie{
+    @extend .cardNoticia;
+    background-image: linear-gradient(teal, rgb(0, 105, 0));
+
+    .cardSerie__titulo{
+        color:black;
+    }
+
+    .cardSerie__texto{
+        color: black;
+    }
+
+    .cardSerie__imagen{
+        color: gray;
+        &--fondoImagen{
+            text-align: center;
+            background-color: black;
+            border-radius: 8px;
+            transition: transform 1s;
+        }
+        &--fondoImagen:hover{
+            text-align: center;
+            background-color:black;
+            border-radius: 8px;
+            transform: translate(5px,5px);
+        }
+    }
+}
+
+.cardSerie:hover{
+    transform: translate(10px,10px);
+}
+
+.cardMiniserie{
+    @extend .cardNoticia;
+    background-image: linear-gradient(teal, rgb(0, 0, 167));
+    
+
+    .cardMiniserie__titulo{
+        color:black;
+    }
+
+    .cardMiniserie__texto{
+        color: black;
+    }
+
+    .cardMiniserie__imagen{
+        color: gray;
+        &--fondoImagen{
+            text-align: center;
+            background-color: black;
+            border-radius: 8px;
+            transition: transform 1s;
+        }
+        &--fondoImagen:hover{
+            text-align: center;
+            background-color:black;
+            border-radius: 8px;
+            transform: translate(5px,5px);
+        }
+    }
+}
+
+.cardMiniserie:hover{
+    transform: translate(10px,10px);
+}
+
+
+
+.fondoImagenIndex:hover{
+    transform: rotate(5deg);
+}
+
+.aside{
+    
+    background-image: linear-gradient(to right, rgb(0, 182, 182), rgb(0, 95, 95));
+    color: black;
+    width: 100%;
+    font-style: normal;
+    font-size: 15px;
+    text-align: center;
+    line-height: 1;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+}
+
+@mixin titulos ($color , $ancho, $alto){
+    color: $color;
+    width: $ancho;
+    height: $alto;
+    font-style: normal;
+    font-size: 15px;
+    text-align: center;
+    line-height: 1;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    
+}
+
+.titulo{
+    @include titulos (#23b5b5 , 90% , 15%)
+    
+}
+
+.footer{
+    margin: 3px;
+    padding: 16px;
+    color:teal;
+    font-style: normal;
+    font-size: 15px;
+    text-align: center;
+    line-height: 1;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+}
+
+.derechosAutor{
+    grid-area: Derechos;
+}
+
+.media{
+    grid-area: Media;
+}
+
+.newsletter{
+    grid-area: Newsletter;
+}
+
+.rrhh{
+    grid-area: RRHH;
+}
+
+
+.fieldsetContacto{
+    color: cornflowerblue;
+}
+
+@media only screen and ( max-width: 600px ){
+    footer{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 25%,25%,25%,25%;
+        grid-template-areas: "Derechos"
+                            " Media"
+                            " Newsletter"
+                            "RRHH";
+        justify-items: center;
+        column-gap: 5px;
+        row-gap: 5px;
+
+    }
+
+}
+
+@media only screen and ( min-width: 600px ){
+    footer{
+        display: grid;
+        grid-template-columns: 50%,50%;
+        grid-template-rows: 25%,25%,25%,25%;
+        grid-template-areas: "Derechos Media"
+                            " Newsletter RRHH";
+        justify-items: center;
+        column-gap: 5px;
+        row-gap: 5px;
+    }
+}
+
+@media only screen and ( min-width: 992px ){
+    footer{
+        display: grid;
+        grid-template-columns: 25%,25%,25%,25%;
+        grid-template-rows: 25%,25%,25%,25%;
+        grid-template-areas: "Derechos Media Newsletter RRHH";
+        justify-items: center;
+        column-gap: 5px;
+        row-gap: 5px;
+}
+}
+
